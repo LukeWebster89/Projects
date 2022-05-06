@@ -1,4 +1,4 @@
-package projects;
+package projects.bank;
 
 import java.util.Scanner;
 
@@ -24,7 +24,8 @@ public class BankAccount {
 			balance = balance + amount;
 			previousTransaction = amount;
 			
-			System.out.println("\nYou Deposited " + amount + "\nYour New Balance Is: " + balance);
+//			System.out.println("\nYou Deposited " + amount + "\nYour New Balance Is: " + balance);
+			System.out.printf("%nYou Deposited: %+,d%nYour New Balance Is: %+,d", amount, balance);
 		}
 	}
 	
@@ -35,16 +36,17 @@ public class BankAccount {
 			balance = balance - amount;
 			previousTransaction = -amount;
 			
-			System.out.println("\nYou Withdrew " + amount + "\nYour New Balance Is: " + balance);
+//			System.out.println("\nYou Withdrew " + amount + "\nYour New Balance Is: " + balance);
+			System.out.printf("%nYou Withdrew: %+,d%nYour New Balance Is: %+,d", -amount, balance);
 		}
 	}
 	
 	public void getTransactionHistory() {
 		
 		if(previousTransaction > 0) {
-			System.out.println("Deposit: " + previousTransaction);
+			System.out.printf("%nDeposit: %+,d%n", previousTransaction);
 		}else if(previousTransaction < 0) {
-			System.out.println("Withdrawal: " + previousTransaction);
+			System.out.printf("%nWithdrawal: %+,d%n", previousTransaction);
 		}else {
 			System.out.println("No transaction");
 		}
@@ -76,10 +78,14 @@ public class BankAccount {
 		switch(option) {
 		
 			case 'A':
+				if(balance == 0) {
+					System.out.println("Your Balance is: " + balance);
+				}else {
 				System.out.println("---------------------");
-				System.out.println("Your Balance Is: " + balance);
+				System.out.printf("Your Balance Is: %+,d%n", balance);
 				System.out.println("---------------------");
 				System.out.println("\n");
+				}
 				break;
 				
 			case 'B':

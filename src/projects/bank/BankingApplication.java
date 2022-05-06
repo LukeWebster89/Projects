@@ -1,4 +1,4 @@
-package projects;
+package projects.bank;
 
 public class BankingApplication {
 	
